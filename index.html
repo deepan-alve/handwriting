@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Text to Handwriting: Realistic Handwritten Pages, Free</title>
+<meta name="description" content="Turn typed text into realistic handwritten A4 pages. Pick a handwriting, pens and paper, add a phone camera look, and download a PDF. Free, no sign up, runs in your browser.">
+<link rel="canonical" href="https://write.deepanalve.dev/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Deepan Alve">
+<meta name="theme-color" content="#f7f9fc">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Handwriting">
+<meta property="og:title" content="Text to Handwriting: Realistic Handwritten Pages">
+<meta property="og:description" content="Type or paste text and get pages that look written by hand, then photographed on a phone. Free PDF download.">
+<meta property="og:url" content="https://write.deepanalve.dev/">
+<meta property="og:image" content="https://write.deepanalve.dev/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A handwritten page made from typed text, shown on a dark desk">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Text to Handwriting: Realistic Handwritten Pages">
+<meta name="twitter:description" content="Type or paste text and get pages that look written by hand. Free PDF download.">
+<meta name="twitter:image" content="https://write.deepanalve.dev/assets/og.jpg">
+<link rel="preload" href="fonts/ui/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/ui/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=13">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Handwriting",
+      "alternateName": "Text to Handwriting",
+      "url": "https://write.deepanalve.dev/",
+      "description": "Turn typed text into realistic handwritten A4 pages with real pens, paper and phone camera looks. Download as PDF or PNG.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "image": "https://write.deepanalve.dev/assets/og.jpg",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Person", "name": "Deepan Alve", "url": "https://deepanalve.dev" },
+      "sameAs": ["https://github.com/deepan-alve/handwriting"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is it free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. There is no sign up and no limit. The code is open source under the MIT licence." } },
+        { "@type": "Question", "name": "Does my text leave my computer?", "acceptedAnswer": { "@type": "Answer", "text": "No. The pages are drawn in your browser. Your text is not uploaded anywhere." } },
+        { "@type": "Question", "name": "Why does every letter look a little different?", "acceptedAnswer": { "@type": "Answer", "text": "Each letter outline is bent slightly, and its size, angle, spacing and ink pressure change. No two letters on a page are the same." } },
+        { "@type": "Question", "name": "Can I use different colours for different parts?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Ink tab sets a pen for headings, bold text, tables and quotes. For one phrase, select it and press a colour dot, or type {red}text{/}." } },
+        { "@type": "Question", "name": "Can I use my own handwriting font?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. On the Hand tab, load a .ttf, .otf or .woff2 file." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <h1 class="brand"><span class="wordmark">Handwriting</span><span class="tag">text to handwritten pages</span></h1>
+    <div class="count" id="count"></div>
+    <div class="spacer"></div>
+    <a class="toplink" href="#about">How it works</a>
+    <a class="toplink" href="https://github.com/deepan-alve/handwriting" rel="noopener">GitHub</a>
+    <div class="actions">
+      <label class="zoom">Zoom <input id="zoom" type="range" min="35" max="140" value="70"></label>
+      <label class="seed">Seed <input id="seed" type="number" min="0" step="1"></label>
+      <button id="btnShuffle" type="button" class="btn">Shuffle</button>
+      <button id="btnPng" type="button" class="btn">PNG</button>
+      <button id="btnPdf" type="button" class="btn primary">Download PDF</button>
+    </div>
+  </header>
+  <div class="work">
+    <aside class="panel">
+      <nav class="tabs" id="tabs" role="tablist" aria-label="Settings"></nav>
+      <div class="tabbody">
+        <section class="tab" id="tab-write" role="tabpanel">
+          <div class="toolbar" id="toolbar"></div>
+          <div class="colors" id="colors"></div>
+          <textarea id="text" spellcheck="false" aria-label="Text to write"></textarea>
+          <div class="row">
+            <button id="btnSample" type="button" class="btn ghost">Sample</button>
+            <button id="btnClear" type="button" class="btn ghost">Clear</button>
+            <label class="btn ghost filelabel">Open file<input id="openFile" type="file" accept=".md,.txt,text/plain"></label>
+          </div>
+          <details class="fold"><summary>Writing syntax</summary><div id="syntax" class="syntax"></div></details>
+        </section>
+        <section class="tab" id="tab-ink" role="tabpanel" hidden>
+          <p class="intro">Pick the pen for each kind of text. For one phrase, use the colour dots on the Write tab.</p>
+        </section>
+        <section class="tab" id="tab-hand" role="tabpanel" hidden></section>
+        <section class="tab" id="tab-paper" role="tabpanel" hidden></section>
+        <section class="tab" id="tab-camera" role="tabpanel" hidden>
+          <p class="intro">Each card is your first page, shot that way. Every page gets its own angle and light.</p>
+        </section>
+      </div>
+    </aside>
+    <main class="stage"><div class="pages" id="pages" aria-label="Preview of the handwritten pages"></div></main>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="about-in">
+    <div class="about-lede">
+      <h2>Turn typed text into handwritten pages</h2>
+      <p>Paste your notes, answers or a letter. Get A4 pages that look written with a real pen and photographed on a phone. Everything runs in your browser, so your text stays on your computer.</p>
+    </div>
+
+    <div class="about-grid">
+      <div>
+        <h3>How it works</h3>
+        <ol class="steps">
+          <li><strong>Write.</strong> Type or paste text. Headings, bold, lists, tables, highlights and colours work with simple markdown.</li>
+          <li><strong>Pick the hand.</strong> Choose from 21 handwriting styles, print or cursive, or load your own font.</li>
+          <li><strong>Pick the pens and paper.</strong> Blue body text, black headings, pencil tables. Plain, ruled, grid or aged paper.</li>
+          <li><strong>Pick the camera.</strong> Clean scan, scanner app, close-up phone shot, flash, dim room or photocopy.</li>
+          <li><strong>Download.</strong> One PDF, or a PNG for each page.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Why it looks real</h3>
+        <ul class="facts">
+          <li>Every letter outline is bent a little, so no two letters match.</li>
+          <li>Lines drift, words wander off the baseline, and ink pressure changes.</li>
+          <li>The writing gets a little sloppier down the page.</li>
+          <li>Pens have their own grain and bleed. Pencil looks like graphite.</li>
+          <li>Camera looks add keystone, paper bow, glare, soft focus and grain.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="faq">
+      <h3>Questions</h3>
+      <details><summary>Is it free?</summary><p>Yes. There is no sign up and no limit. The code is open source under the MIT licence.</p></details>
+      <details><summary>Does my text leave my computer?</summary><p>No. The pages are drawn in your browser. Your text is not uploaded anywhere.</p></details>
+      <details><summary>Why does every letter look a little different?</summary><p>Each letter outline is bent slightly, and its size, angle, spacing and ink pressure change. No two letters on a page are the same.</p></details>
+      <details><summary>Can I use different colours for different parts?</summary><p>Yes. The Ink tab sets a pen for headings, bold text, tables and quotes. For one phrase, select it and press a colour dot, or type <code>{red}text{/}</code>.</p></details>
+      <details><summary>Can I use my own handwriting font?</summary><p>Yes. On the Hand tab, load a .ttf, .otf or .woff2 file.</p></details>
+    </div>
+  </div>
+  <footer class="foot">
+    <span class="foot-mark">Handwriting</span>
+    <span>Made by <a href="https://deepanalve.dev">Deepan Alve</a></span>
+    <a href="https://github.com/deepan-alve/handwriting" rel="noopener">Source on GitHub</a>
+    <span>MIT licence</span>
+  </footer>
+</section>
+
+<script src="opentype.min.js"></script>
+<script src="app.js?v=12"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+out/
+private/
+
+# agent notes stay local
+AGENTS.md
+CLAUDE.md
+STATE.md

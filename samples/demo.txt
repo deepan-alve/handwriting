@@ -1,0 +1,22 @@
+# Study notes: graph search
+Name: Alex Morgan
+Registration No.: 20240001
+
+## Breadth-first search
+- Explores level by level, so the first goal found is the **shallowest**.
+- Uses a queue. Time and space are both O(b^d).
+- {red}Not optimal{/} when step costs differ.
+- ==Remember:== BFS finds the fewest moves, not the cheapest path.
+- [x] Read chapter 3
+- [ ] Practise on a grid maze
+
+| Method | Complete | Optimal |
+|---|---|---|
+| BFS | yes | if costs are equal |
+| DFS | no | no |
+| UCS | yes | yes |
+
+> A good plan today beats a perfect plan tomorrow.
+
+Use __underline__ for key terms, ~~strike~~ for mistakes, and {green}green{/} or {purple}purple{/} pens for extra notes.
+Arrows and logic symbols work too: A → B, x ≠ y, p ∧ q ⇒ r.

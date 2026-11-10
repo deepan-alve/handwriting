@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://write.deepanalve.dev/sitemap.xml
