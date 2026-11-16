@@ -192,6 +192,12 @@ button { cursor: pointer; }
 .faq details[open] summary::after { content: "−"; }
 .faq p { margin: 0 0 var(--space-md); max-width: 64ch; color: var(--color-ink-2); line-height: 1.6; }
 .faq code { font: 500 13px var(--font-mono); color: var(--color-accent); }
+.support { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--color-rule); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; }
+.support p { margin: 0 0 var(--space-md); max-width: 52ch; color: var(--color-ink-2); line-height: 1.6; }
+.support-btn { display: inline-flex; align-items: center; height: 44px; padding: 0 20px; border-radius: 999px; background: var(--color-accent); color: var(--color-paper); font-weight: 600; text-decoration: none; white-space: nowrap; }
+.support-btn:hover { filter: brightness(1.08); }
+.support .sticker { width: 220px; height: auto; rotate: 6deg; filter: drop-shadow(0 10px 14px rgb(0 0 0 / 0.25)); }
+@media (max-width: 760px) { .support { grid-template-columns: minmax(0, 1fr); } .support .sticker { justify-self: center; width: 180px; } }
 .foot { max-width: 1080px; margin: 0 auto; padding: var(--space-lg); border-top: 1px solid var(--color-rule); display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-lg); align-items: baseline; font-size: var(--text-sm); color: var(--color-ink-3); }
 .foot-mark { font: 400 26px/1 var(--font-hand); color: var(--color-accent); margin-right: auto; }
 .foot a { color: var(--color-ink-2); text-decoration: none; border-bottom: 1px solid var(--color-rule); }

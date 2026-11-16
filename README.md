@@ -1,10 +1,16 @@
 # Handwriting
 
-Browser tool that turns typed text into realistic handwritten A4 pages. No server model, no GPU.
+[![Use it](https://img.shields.io/badge/Use%20it-write.deepanalve.dev-2340ff)](https://write.deepanalve.dev)
+[![License MIT](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
+[![Buy me a sticker](https://img.shields.io/badge/Buy%20me%20a%20sticker-ff5a1f)](https://guestbook.deepanalve.dev/sign?product=write)
 
-**Use it: [write.deepanalve.dev](https://write.deepanalve.dev)**
+Browser tool that turns typed text into realistic handwritten A4 pages. No server model, no GPU. Your text never leaves your browser.
 
-![Example page](docs/preview.jpg)
+**[Use it at write.deepanalve.dev](https://write.deepanalve.dev)** · **[Buy me a sticker](https://guestbook.deepanalve.dev/sign?product=write)**
+
+![The editor: markdown on the left, the handwritten page on the right](docs/app.jpg)
+
+![A finished page, shot with the phone camera look](docs/preview.jpg)
 
 ## Run
 
@@ -81,3 +87,19 @@ docker run -p 8080:80 handwriting
 ## Licence
 
 MIT for the code. Fonts keep their own licences, see `FONTS.md`.
+
+## Support
+
+<a href="https://guestbook.deepanalve.dev/sign?product=write"><img src="docs/sticker.png" width="300" alt="A Write sticker with a name on it"></a>
+
+Handwriting stays free. If it saved you an evening of writing, buy me a sticker. You get a one-of-one sticker made from your name, stuck on a live wall with everyone who keeps Handwriting going.
+
+**[Buy me a sticker](https://guestbook.deepanalve.dev/sign?product=write)**
+
+## More tools by Deepan
+
+| Tool | What it does |
+|---|---|
+| [Postsound](https://postsound.deepanalve.dev) | Plays the music on Instagram photo posts in your desktop browser. |
+| [GhostShot](https://ghostshot.deepanalve.dev) | Drag-to-capture screenshots for GNOME Shell. |
+| [Handwriting](https://write.deepanalve.dev) | Turns typed text into realistic handwritten pages. |
