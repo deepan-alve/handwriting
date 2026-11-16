@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://write.deepanalve.dev/sitemap.xml
+Sitemap: https://www.deepanalve.dev/sitemap.xml
