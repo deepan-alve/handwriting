@@ -3,6 +3,7 @@
 [![Use it](https://img.shields.io/badge/Use%20it-write.deepanalve.dev-2340ff)](https://write.deepanalve.dev)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 [![Buy me a sticker](https://img.shields.io/badge/Buy%20me%20a%20sticker-ff5a1f)](https://guestbook.deepanalve.dev/sign?product=write)
+[![Watch on YouTube](https://img.shields.io/badge/Watch-YouTube-ff0000?logo=youtube&logoColor=white)](https://youtu.be/N1HwvdIqThQ)
 
 Browser tool that turns typed text into realistic handwritten A4 pages. No server model, no GPU. Your text never leaves your browser.
 
@@ -11,6 +12,12 @@ Browser tool that turns typed text into realistic handwritten A4 pages. No serve
 ![The editor: markdown on the left, the handwritten page on the right](docs/app.jpg)
 
 ![A finished page, shot with the phone camera look](docs/preview.jpg)
+
+## Watch
+
+[![Handwriting trailer: text to handwriting for assignments](docs/youtube-thumbnail.jpg)](https://youtu.be/N1HwvdIqThQ)
+
+**[Launch trailer on YouTube](https://youtu.be/N1HwvdIqThQ)** · **[Vertical Short](https://youtube.com/shorts/vuRzs6yYyVM)** · **[All videos on @deepanalve](https://www.youtube.com/@deepanalve)**
 
 ## Run
 
